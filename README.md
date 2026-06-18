@@ -1,3 +1,4 @@
+## Seal Slack Bot:
 **Hello there!**
 
 This is a Slack Bot made for silly purposes for the Stardance Challenge!
