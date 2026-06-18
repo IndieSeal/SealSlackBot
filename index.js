@@ -25,13 +25,7 @@ app.command("/seal-help", async ({ ack, respond }) => {
   });
 });
 
-const phrases = [
-  'They are very huggable!',
-  'Such cuties!',
-  'So squishy they could explodeee'
-];
-
-app.command("/seal-fact", async ({ ack, respond }) => {
+app.command("/seal-randomspecie", async ({ ack, respond }) => {
   await ack();
 
   try {
@@ -42,28 +36,10 @@ app.command("/seal-fact", async ({ ack, respond }) => {
     });
 
     const animals = await response.json();
-
-    if (!Array.isArray(animals) || animals.length === 0) {
-      await respond("I couldn't find any seal facts :[");
-      return;
-    }
-
     const seal = animals[Math.floor(Math.random() * animals.length)];
-
-    const facts = [
-      `Diet: ${seal.characteristics?.diet}`,
-      `Habitat: ${seal.characteristics?.habitat}`,
-      `Lifespan: ${seal.characteristics?.lifespan}`,
-      `Weight: ${seal.characteristics?.weight}`
-    ].filter(fact => !fact.includes("undefined"));
-
-    const phrase = phrases[Math.floor(Math.random() * phrases.length)];
-    await respond({
-      text: `🦭 *${seal.name}*\n${facts.join("\n")}\n*${phrase}*`
-    });
-  } catch (error) {
-    console.error(error);
-    await respond("Something went wrong while getting a seal fact.");
+    await respond({ text: `Random Seal Name: *${seal.name}*` });
+  } catch (err) {
+    await respond({ text: "Failed to fetch a seal name." });
   }
 });
 
