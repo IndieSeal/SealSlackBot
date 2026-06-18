@@ -38,3 +38,6 @@ All of the commands start with /seal-{command_name}, and the following are the o
    ```
 4. Run in the terminal: `node index.js`
 5. Done! Test your commands on Slack :>
+
+## Credits && AI Usage Declaration
+I used AI to help me understand how to use API's if the documentation was lackluster. So the code is in grand majority human-made!
