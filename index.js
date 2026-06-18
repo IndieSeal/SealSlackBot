@@ -19,10 +19,32 @@ app.command("/seal-help", async ({ ack, respond }) => {
   await respond({
     text:
       `Available Commands:
+
+      <General>
+      /seal-help - Welp, you figured this one out yourself (or how else did you get here?)
       /seal-ping - Check bot latency
+
+      <My *seally* commands (get it? ._.)>
       /seal-randomspecie - Get a random seal specie's name
-      /seal-gif - Get a random seal gif from GIPHY`
+      /seal-gif - Get a random seal gif from GIPHY
+      /seal-recommendation - Get a cool movie/series/game recommendation from a humble seal!`
   });
+});
+
+app.command("/seal-recommendation", async ({ command, ack, respond }) => {
+  const myRecommendations = [
+    "The Good Place - Really good series that teaches you philosophy while being hella funny",
+    "The Office - Haven't finished it, it's an uncomfortable but hilarious humor, though Season 1 is not good in my opinion",
+    "Everything Everywhere All at Once - Really good watch and it's indie!",
+    "Hollow Knight && Silksong - Just play them, don't even ask",
+    "The Finals - SUPER underrated shooter, the freshets game that has come out from the shooter genre in years",
+    "Severance - Blew my mind, and the camera work is to die for",
+    "https://indie-seal.itch.io/ - The coolest games made by the coolest seal >:]!"
+  ];
+  const recommendation = myRecommendations[Math.floor(Math.random() * myRecommendations.length)];
+
+  await ack();
+  await respond({ text: `${recommendation}`});
 });
 
 app.command("/seal-gif", async ({ ack, respond }) => {
@@ -37,7 +59,7 @@ app.command("/seal-gif", async ({ ack, respond }) => {
   const response = await fetch(`https://api.giphy.com/v1/gifs/random?${params.toString()}`);
   if(!response.ok) {
     await respond({
-      text: `Request failed`
+      text: `GIPHY: Request failed`
     });
     return;
   }
