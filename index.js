@@ -1,5 +1,4 @@
 require("dotenv").config();
-
 const { App } = require("@slack/bolt");
 
 const app = new App({
@@ -21,7 +20,40 @@ app.command("/seal-help", async ({ ack, respond }) => {
     text:
       `Available Commands:
       /seal-ping - Check bot latency
-      /seal-fact - Get a seal fact`
+      /seal-randomspecie - Get a random seal specie's name
+      /seal-gif - Get a random seal gif from GIPHY`
+  });
+});
+
+app.command("/seal-gif", async ({ ack, respond }) => {
+  await ack();
+
+  const tag = "Seal";
+  const params = new URLSearchParams({
+    api_key: process.env.GIPHY_KEY,
+    tag,
+    rating: "pg",
+  });
+  const response = await fetch(`https://api.giphy.com/v1/gifs/random?${params.toString()}`);
+  if(!response.ok) {
+    await respond({
+      text: `Request failed`
+    });
+    return;
+  }
+
+  const json = await response.json();
+  if(!json) return;
+  
+  const url = json.data.images.original.url;
+  await respond({
+    blocks:[
+      {
+        type: "image",
+        image_url: url,
+        alt_text: "seal",
+      },
+    ],
   });
 });
 

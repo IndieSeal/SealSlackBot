@@ -11,6 +11,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@giphy/js-fetch-api": "^5.8.0",
     "@slack/bolt": "^4.7.3",
     "dotenv": "^17.4.2",
     "node-fetch": "^3.3.2"
