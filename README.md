@@ -1,11 +1,14 @@
-Hello there!
+**Hello there!**
+
 This is a Slack Bot made for silly purposes for the Stardance Challenge!
+
 
 ## Description:
 This bot reacts to slash commands sent by the user, these mostly are made to be funny, and REAL special for seal lovers.
 
-## Used:
+## Used APIs:
 -GIPHY's API: This API was used to send GIFs about seals! And maybe it was just me, but finding docs for JavaScript was a pain... [https://developers.giphy.com/]
+
 -API Ninjas: This API was used to retrieve fun seal facts, but was ultimately just used to get names of random CUTE seals! [https://api-ninjas.com/]
 
 ## How to use
