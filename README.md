@@ -2,7 +2,7 @@
 **Hello there!**
 
 This is a Slack Bot made for silly purposes for the Stardance Challenge!
-
+<img width="800" height="458" alt="Screencast_20260618_170914-ezgif com-speed" src="https://github.com/user-attachments/assets/57be0a4a-dfad-4ac2-94d1-23c347f615af" />
 
 ## Description:
 This bot reacts to slash commands sent by the user, these mostly are made to be funny, and REAL special for seal lovers.
